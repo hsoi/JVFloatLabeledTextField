@@ -92,11 +92,11 @@
 - (void)showFloatingLabel:(BOOL)animated
 {
     void (^showBlock)() = ^{
-        _floatingLabel.alpha = 1.0f;
-        _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
+        self->_floatingLabel.alpha = 1.0f;
+        self->_floatingLabel.frame = CGRectMake(self->_floatingLabel.frame.origin.x,
                                           2.0f,
-                                          _floatingLabel.frame.size.width,
-                                          _floatingLabel.frame.size.height);
+                                          self->_floatingLabel.frame.size.width,
+                                          self->_floatingLabel.frame.size.height);
     };
     
     if (animated || _animateEvenIfNotFirstResponder) {
@@ -114,11 +114,11 @@
 - (void)hideFloatingLabel:(BOOL)animated
 {
     void (^hideBlock)() = ^{
-        _floatingLabel.alpha = 0.0f;
-        _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                          _floatingLabel.font.lineHeight + _floatingLabelYPadding.floatValue,
-                                          _floatingLabel.frame.size.width,
-                                          _floatingLabel.frame.size.height);
+        self->_floatingLabel.alpha = 0.0f;
+        self->_floatingLabel.frame = CGRectMake(self->_floatingLabel.frame.origin.x,
+                                          self->_floatingLabel.font.lineHeight + self->_floatingLabelYPadding.floatValue,
+                                          self->_floatingLabel.frame.size.width,
+                                          self->_floatingLabel.frame.size.height);
 
     };
     
@@ -179,18 +179,18 @@
 
 - (CGRect)textRectForBounds:(CGRect)bounds
 {
-    return UIEdgeInsetsInsetRect([super textRectForBounds:bounds], UIEdgeInsetsMake(ceilf(_floatingLabel.font.lineHeight+_floatingLabelYPadding.floatValue), 0.0f, 0.0f, 0.0f));
+    return UIEdgeInsetsInsetRect([super textRectForBounds:bounds], UIEdgeInsetsMake((CGFloat)ceil(_floatingLabel.font.lineHeight+_floatingLabelYPadding.doubleValue), 0.0f, 0.0f, 0.0f));
 }
 
 - (CGRect)editingRectForBounds:(CGRect)bounds
 {
-    return UIEdgeInsetsInsetRect([super editingRectForBounds:bounds], UIEdgeInsetsMake(ceilf(_floatingLabel.font.lineHeight+_floatingLabelYPadding.floatValue), 0.0f, 0.0f, 0.0f));
+    return UIEdgeInsetsInsetRect([super editingRectForBounds:bounds], UIEdgeInsetsMake((CGFloat)ceil(_floatingLabel.font.lineHeight+_floatingLabelYPadding.doubleValue), 0.0f, 0.0f, 0.0f));
 }
 
 - (CGRect)clearButtonRectForBounds:(CGRect)bounds
 {
     CGRect rect = [super clearButtonRectForBounds:bounds];
-    rect = CGRectMake(rect.origin.x, rect.origin.y + (_floatingLabel.font.lineHeight / 2.0) + (_floatingLabelYPadding.floatValue / 2.0f), rect.size.width, rect.size.height);
+    rect = CGRectMake(rect.origin.x, rect.origin.y + (_floatingLabel.font.lineHeight / 2.0f) + (_floatingLabelYPadding.floatValue / 2.0f), rect.size.width, rect.size.height);
     return rect;
 }
 

@@ -4,7 +4,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2013 Jared Verdi
+//  Copyright (c) 2013-2015 Jared Verdi
 //  Original Concept by Matt D. Smith
 //  http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users
 //
@@ -33,7 +33,8 @@
  * Due to space constraints on mobile devices, it is common to rely solely on placeholders as a means to label fields.
  * This presents a UX problem, in that, once the user begins to fill out a form, no labels are present.
  *
- * `JVFloatLabeledTextView` aims to improve the user experience by having placeholders transition into "floating labels" that hover above the text view after it is populated with text.
+ * `JVFloatLabeledTextView` aims to improve the user experience by having placeholders transition into "floating labels"
+ * that hover above the text view after it is populated with text.
  *
  * JVFloatLabeledTextView supports iOS 7+.
  *
@@ -86,10 +87,11 @@
 @property (nonatomic, strong) UIColor * floatingLabelActiveTextColor UI_APPEARANCE_SELECTOR;
 
 /**
- * Indicates whether the floating label should lock to the top of the text view, or scroll away with text when the text view is scrollable.
- * By default, floating labels will lock to the top of the text view and their background color will be set to the text view's background color
+ * Indicates whether the floating label should lock to the top of the text view, or scroll away with text when the text 
+ * view is scrollable. By default, floating labels will lock to the top of the text view and their background color will
+ * be set to the text view's background color
  * Note that this works best when floating labels have a non-clear background color.
- * Non-zero values indicate truthiness. (BOOL cannot be used with UI_APPEARANCE_SELECTOR).
+ * Non-zero values indicate truthiness. (BOOL cannot be used with UI_APPEARANCE_SELECTOR on iOS 7).
  */
 @property (nonatomic, assign) NSInteger floatingLabelShouldLockToTop UI_APPEARANCE_SELECTOR;
 
@@ -102,9 +104,9 @@
 /**
  * Indicates whether the floating label's appearance should be animated regardless of first responder status.
  * By default, animation only occurs if the text field is a first responder.
- * Non-zero values indicate truthiness. (BOOL cannot be used with UI_APPEARANCE_SELECTOR).
+ * Non-zero values indicate truthiness. (BOOL cannot be used with UI_APPEARANCE_SELECTOR on iOS 7).
  */
-@property (nonatomic, assign) NSInteger animateEvenIfNotFirstResponder UI_APPEARANCE_SELECTOR; // Can't use BOOL for UI_APPEARANCE. Non-zero == YES
+@property (nonatomic, assign) NSInteger animateEvenIfNotFirstResponder UI_APPEARANCE_SELECTOR;
 
 /**
  * Duration of the animation when showing the floating label. 
